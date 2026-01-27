@@ -1,9 +1,17 @@
 const quotes = document.getElementById("quotes");
+const author = document.getElementById("author");
+const newQ = document.getElementById("newQ");
+let quotesData = "";
 let data = "";
 
 const getNewQuotes = () => {
     let randomNum = Math.floor(Math.random() * 10);
-    quotes.innerText = `${data[randomNum].q}`
+    quotesData = data[randomNum];
+    quotes.innerText = `${quotesData.q}`
+    quotesData == null
+     ? (author.innerText = unKnown)
+     : (author.innerText = `${quotesData.a}`);
+
 }
 
 const getQuotes = async () => {
@@ -20,4 +28,5 @@ const getQuotes = async () => {
  
 };
 
+newQ.addEventListener("click", getNewQuotes);
 getQuotes();
